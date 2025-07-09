@@ -1,26 +1,121 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+   /* ─────────── Corgi-Inspired Accent Palette ─────────── */
+  --color-primary-accent:   #E26A2C; /* Warm “corgi coat” orange */
+  --color-primary-accent-dark:  #C25928; /* ~15% darker for hover states */
+  --color-primary-accent-light: #F5C6A5; /* ~40% lighter for backgrounds */
+
+  /* ─────────── Neutral Base Palette ─────────── */
+  --color-primary:         #2A2D34; /* Deep charcoal for text & headings */
+  --color-primary-light:   #4B4F5A; /* Softer charcoal for subheadings */
+  --color-primary-lighter: #8A8E9B; /* Muted grey for borders & icons */
+
+  --color-secondary-bg:    #FAF8F2; /* Soft cream—like corgi underbelly */
+  --color-paragraph-light: #A0A3AB; /* Lighter grey for body text */
+  --text-h1: clamp(2rem, 1.2083rem + 3.9583vw, 4.375rem);
+  --text-h2: clamp(1.5rem, 0.7708rem + 2.3958vw, 2.6875rem);
+  --text-subtitle: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+  --text-paragraph: clamp(1rem, 2.5vw, 1.25rem);
+
+  --animate-marquee: marquee 20s infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+}
+body.modal-open {
+  overflow: hidden;
+  position: relative;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1e293b;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#E26A2C;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #E26A2C;
+  opacity: 0.5;
+}
+
+.text-subtitle {
+  font-size: var(--text-subtitle);
+  @apply font-semibold tracking-widest text-primary-accent;
+}
+.text-h1 {
+  font-size: var(--text-h1);
+  @apply   leading-[1.2];
+}
+.text-h2 {
+  font-size: var(--text-h2);
+  @apply font-bold text-black leading-[1.1];
+}
+
+.text-paragraph {
+  @apply text-paragraph-light text-lg lg:text-xl;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-tr from-primary via-primary-light to-primary-lighter bg-clip-text text-transparent;
+}
+.text-gradient-accent {
+  @apply bg-gradient-to-tr 
+    from-[var(--color-primary-accent-dark)] 
+    via-[var(--color-primary-accent)] 
+    to-[var(--color-primary-accent-light)] 
+    bg-clip-text 
+    text-transparent;
+}
+
+.paper-ripped-edge {
+  position: relative;
+}
+
+.paper-ripped-edge::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px; /* Adjust height as needed */
+  background: white; /* Match your background color */
+  -webkit-clip-path: polygon(
+    0% 100%, 
+    1% 0%, 4% 100%, 9% 0%, 13% 100%, 19% 1%, 21% 100%, 
+    26% 5%, 30% 100%, 36% 2%, 43% 100%, 50% 1%, 52% 100%, 
+    61% 0%, 69% 94%, 70% 0%, 76% 100%, 81% 0%, 84% 100%, 
+    91% 0%, 97% 100%, 99% 3%, 100% 100%
+  );
+  clip-path: polygon(
+    0% 100%, 
+    1% 0%, 4% 100%, 9% 0%, 13% 100%, 19% 1%, 21% 100%, 
+    26% 5%, 30% 100%, 36% 2%, 43% 100%, 50% 1%, 52% 100%, 
+    61% 0%, 69% 94%, 70% 0%, 76% 100%, 81% 0%, 84% 100%, 
+    91% 0%, 97% 100%, 99% 3%, 100% 100%
+  );
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }

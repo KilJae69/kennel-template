@@ -1,8 +1,9 @@
+
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { domAnimation, LazyMotion } from "motion/react";
-import Header from "@/components/Header";
+
+import InnerLayout from "@/components/InnerLayout";
 
 const poppins = Poppins({
   subsets: ["latin"], // Choose language subsets as needed
@@ -24,11 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable}  antialiased`}>
-        <LazyMotion features={domAnimation}>
-          <Header />
-          <main className="">{children}</main>
-          <div id="modal-root"></div>
-        </LazyMotion>
+       <InnerLayout>
+        {children}
+       </InnerLayout>
       </body>
     </html>
   );

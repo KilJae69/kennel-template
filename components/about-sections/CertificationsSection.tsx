@@ -56,17 +56,20 @@ export default function CertificationsSection() {
             </div>
 
             {/* → RIGHT */}
-            <div className="grid grid-cols-1 sm:grid-cols-2   items-center gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-center gap-2">
               {badges.map((b) => (
+                 <div key={b.id} className="flex justify-center">
+
                 <BadgeOverlayCard
-                  key={b.id}
+                
                   id={b.id}
                   image={b.image}
                   subtitle={b.subtitle}
                   description={b.description}
                   activeId={activeId}
                   onToggle={setActiveId}
-                />
+                  />
+                  </div>
               ))}
             </div>
           </div>

@@ -38,6 +38,7 @@ const navLinks: NavItem[] = [
     href: "/resources",
     children: [
       { title: "Blog & Tips", href: "/blog" },
+      { title: "About Corgies", href: "/breed" },
       { title: "Testimonials", href: "/testimonials" },
       { title: "Contact Us", href: "/contact" },
     ],

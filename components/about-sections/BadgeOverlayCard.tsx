@@ -64,7 +64,7 @@ export default function BadgeOverlayCard({
   return (
     <m.div
       ref={cardRef}
-      className="relative aspect-square max-w-[300px] rounded-2xl overflow-hidden bg-white cursor-pointer shadow-lg hover:shadow-xl transition-shadow"
+      className="relative flex-1 aspect-square max-w-[300px] rounded-2xl overflow-hidden bg-white cursor-pointer shadow-lg hover:shadow-xl transition-shadow"
       onClick={handleInteraction}
       onMouseEnter={() => !hasTouch && setIsHovered(true)}
       onMouseLeave={() => !hasTouch && setIsHovered(false)}

@@ -9,21 +9,15 @@ import HistoryFamilySection from "@/components/about-sections/HistoryFamilySecti
 
 import PuppiesForSaleSection from "@/components/about-sections/PuppiesForSaleSection";
 import CertificationsSection from "@/components/about-sections/CertificationsSection";
+import PageIntro from "@/components/shared/PageIntro";
+import { familyHistoryTimeline } from "@/constants/familyHistoryTimeline";
 
 
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-to-r from-orange-100 py-12 via-orange-200 paper-ripped-edge to-orange-300 mt-32">
-        <Container>
-          <FadeIn>
-            <div className="flex items-center justify-center w-full">
-              <h1 className="text-h1 text-primary-accent">About Us</h1>
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
+     <PageIntro title="About Us"/>
 
       {/* 1) Welcome */}
       <section className="bg-white my-16 lg:my-28">
@@ -148,7 +142,7 @@ export default function AboutPage() {
         </Container>
       </section>
       {/* 3) History & Family */}
-      <HistoryFamilySection />
+      <HistoryFamilySection text="History" accentText="& Family" timeline={familyHistoryTimeline}/>
 
       
       <PuppiesForSaleSection/>

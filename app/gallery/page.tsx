@@ -21,7 +21,7 @@ function Fallback(){
 export default function GalleryPage() {
   return (
     <>
-    <PageIntro title="Image Gallery"/>
+    <PageIntro title="Gallery"/>
     <Container>
         <Suspense fallback={<Fallback/>}>
             <Gallery galleryData={galleryData} />

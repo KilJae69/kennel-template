@@ -9,8 +9,13 @@ import { cn } from "@/lib/utils";
 import { galleryCategories } from "@/constants/galleryData";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import SectionTitle from "../shared/SectionTitle";
 
-export default function Gallery({ galleryData }: { galleryData: GalleryItem[] }) {
+export default function Gallery({
+  galleryData,
+}: {
+  galleryData: GalleryItem[];
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const searchParams = useSearchParams();
@@ -22,7 +27,9 @@ export default function Gallery({ galleryData }: { galleryData: GalleryItem[] })
   const filteredData =
     selectedCategory === "all"
       ? galleryData
-      : galleryData.filter((item) => item.categories.includes(selectedCategory));
+      : galleryData.filter((item) =>
+          item.categories.includes(selectedCategory)
+        );
 
   const handleCategoryChange = (categoryId: string) => {
     setSelectedCategory(categoryId);
@@ -30,8 +37,18 @@ export default function Gallery({ galleryData }: { galleryData: GalleryItem[] })
   };
 
   return (
-    <div className="pt-8 lg:pt-16">
-      <h2 className="text-center font-bold text-4xl mb-8">Gallery</h2>
+    <div className="my-16 lg:my-28">
+      <div className="w-fit mx-auto mb-8 ">
+        <SectionTitle text="Champion" accentText="Moments" />
+      </div>
+      <p className="max-w-3xl mb-8 mx-auto text-center text-paragraph">
+        {" "}
+        Relive the highlights of our champions show careers through these
+        captured moments. Each image tells a story of excellence - from the
+        poised stack in the ring to the triumphant wins that define our breeding
+        program. Browse through their journey to becoming some of the most
+        celebrated examples of the breed.
+      </p>
 
       {/* Category Filter */}
       <div className="flex flex-wrap justify-center gap-2 mb-8 lg:mb-16">
@@ -82,7 +99,7 @@ export default function Gallery({ galleryData }: { galleryData: GalleryItem[] })
                   priority={idx < 6}
                   className="w-full h-auto object-cover rounded-lg"
                   placeholder="blur"
-                  blurDataURL={ "data:image/svg+xml;base64,..."}
+                  blurDataURL={"data:image/svg+xml;base64,..."}
                 />
               </motion.div>
             </motion.div>

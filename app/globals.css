@@ -2,18 +2,18 @@
 @import "tw-animate-css";
 
 @theme {
-   /* ─────────── Corgi-Inspired Accent Palette ─────────── */
-  --color-primary-accent:   #E26A2C; /* Warm “corgi coat” orange */
-  --color-primary-accent-dark:  #C25928; /* ~15% darker for hover states */
-  --color-primary-accent-light: #F5C6A5; /* ~40% lighter for backgrounds */
+  /* ─────────── Corgi-Inspired Accent Palette ─────────── */
+  --color-primary-accent: #e26a2c; /* Warm “corgi coat” orange */
+  --color-primary-accent-dark: #c25928; /* ~15% darker for hover states */
+  --color-primary-accent-light: #f5c6a5; /* ~40% lighter for backgrounds */
 
   /* ─────────── Neutral Base Palette ─────────── */
-  --color-primary:         #2A2D34; /* Deep charcoal for text & headings */
-  --color-primary-light:   #4B4F5A; /* Softer charcoal for subheadings */
-  --color-primary-lighter: #8A8E9B; /* Muted grey for borders & icons */
+  --color-primary: #2a2d34; /* Deep charcoal for text & headings */
+  --color-primary-light: #4b4f5a; /* Softer charcoal for subheadings */
+  --color-primary-lighter: #8a8e9b; /* Muted grey for borders & icons */
 
-  --color-secondary-bg:    #FAF8F2; /* Soft cream—like corgi underbelly */
-  --color-paragraph-light: #A0A3AB; /* Lighter grey for body text */
+  --color-secondary-bg: #faf8f2; /* Soft cream—like corgi underbelly */
+  --color-paragraph-light: #a0a3ab; /* Lighter grey for body text */
   --text-h1: clamp(2rem, 1.2083rem + 3.9583vw, 4.375rem);
   --text-h2: clamp(1.5rem, 0.7708rem + 2.3958vw, 2.6875rem);
   --text-subtitle: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
@@ -49,13 +49,13 @@ body.modal-open {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:#E26A2C;
+  background: #e26a2c;
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #E26A2C;
+  background: #e26a2c;
   opacity: 0.5;
 }
 
@@ -65,7 +65,7 @@ body.modal-open {
 }
 .text-h1 {
   font-size: var(--text-h1);
-  @apply   leading-[1.2];
+  @apply leading-[1.2];
 }
 .text-h2 {
   font-size: var(--text-h2);
@@ -79,13 +79,34 @@ body.modal-open {
 .text-gradient {
   @apply bg-gradient-to-tr from-primary via-primary-light to-primary-lighter bg-clip-text text-transparent;
 }
-.text-gradient-accent {
+/* .text-gradient-accent {
   @apply bg-gradient-to-tr 
     from-[var(--color-primary-accent-dark)] 
     via-[var(--color-primary-accent)] 
     to-[var(--color-primary-accent-light)] 
     bg-clip-text 
     text-transparent;
+} */
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, #e26a2c 0%, #ff8243 50%, #ffa07a 100%);
+}
+
+/* For a more subtle version */
+.bg-gradient-accent-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(226, 106, 44, 0.9) 0%,
+    rgba(226, 106, 44, 0.7) 100%
+  );
+}
+
+/* For text with gradient */
+.text-gradient-accent {
+  background: linear-gradient(135deg, #e26a2c 0%, #ff8243 50%, #ffa07a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .paper-ripped-edge {
@@ -93,7 +114,7 @@ body.modal-open {
 }
 
 .paper-ripped-edge::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -101,21 +122,117 @@ body.modal-open {
   height: 20px; /* Adjust height as needed */
   background: white; /* Match your background color */
   -webkit-clip-path: polygon(
-    0% 100%, 
-    1% 0%, 4% 100%, 9% 0%, 13% 100%, 19% 1%, 21% 100%, 
-    26% 5%, 30% 100%, 36% 2%, 43% 100%, 50% 1%, 52% 100%, 
-    61% 0%, 69% 94%, 70% 0%, 76% 100%, 81% 0%, 84% 100%, 
-    91% 0%, 97% 100%, 99% 3%, 100% 100%
+    0% 100%,
+    1% 0%,
+    4% 100%,
+    9% 0%,
+    13% 100%,
+    19% 1%,
+    21% 100%,
+    26% 5%,
+    30% 100%,
+    36% 2%,
+    43% 100%,
+    50% 1%,
+    52% 100%,
+    61% 0%,
+    69% 94%,
+    70% 0%,
+    76% 100%,
+    81% 0%,
+    84% 100%,
+    91% 0%,
+    97% 100%,
+    99% 3%,
+    100% 100%
   );
   clip-path: polygon(
-    0% 100%, 
-    1% 0%, 4% 100%, 9% 0%, 13% 100%, 19% 1%, 21% 100%, 
-    26% 5%, 30% 100%, 36% 2%, 43% 100%, 50% 1%, 52% 100%, 
-    61% 0%, 69% 94%, 70% 0%, 76% 100%, 81% 0%, 84% 100%, 
-    91% 0%, 97% 100%, 99% 3%, 100% 100%
+    0% 100%,
+    1% 0%,
+    4% 100%,
+    9% 0%,
+    13% 100%,
+    19% 1%,
+    21% 100%,
+    26% 5%,
+    30% 100%,
+    36% 2%,
+    43% 100%,
+    50% 1%,
+    52% 100%,
+    61% 0%,
+    69% 94%,
+    70% 0%,
+    76% 100%,
+    81% 0%,
+    84% 100%,
+    91% 0%,
+    97% 100%,
+    99% 3%,
+    100% 100%
   );
 }
 button {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+}
+
+/* Swiper */
+.swiper-pagination {
+  transform: translateY(10px) !important;
+ 
+  position: absolute !important;
+}
+
+.swiper-pagination-bullet {
+  width: 16px !important;
+  height: 16px !important;
+  cursor: pointer !important;
+}
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+.swiper-button-prev {
+  color: #d4af37 !important;
+}
+.swiper-button-next {
+  color: #d4af37 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #e26a2c !important; /* Change arrow color */
+  background: #fff !important;
+  width: 65px !important;
+  height: 65px !important;
+  border-radius: 50%;
+
+  /* Add any custom styling */
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px !important;
+  font-weight: 700;
+}
+
+.testimonial-swiper {
+  padding-bottom: 60px !important;
+}
+
+/* Position them absolutely if desired */
+.testimonial-swiper .swiper-button-next {
+  position: absolute !important;
+  top: 85%;
+  right: 0;
+
+  z-index: 10;
+}
+.testimonial-swiper .swiper-button-prev {
+  position: absolute !important;
+  top: 85%;
+  left: 0;
+
+  z-index: 10;
 }

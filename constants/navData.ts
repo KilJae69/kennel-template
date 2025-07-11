@@ -8,12 +8,13 @@ const navLinks: NavItem[] = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
   {
-    title: "Our Dogs",
+    title: "Our Champions",
     href: "/dogs",
     children: [
-      { title: "Duke", href: "/dogs/duke" },
+      { title: "Thor", href: "/dogs/thor" },
+      { title: "Winston", href: "/dogs/winston" },
       { title: "Luna", href: "/dogs/luna" },
-      { title: "Milo", href: "/dogs/milo" },
+      { title: "Bella", href: "/dogs/bella" },
     ],
   },
   {
@@ -23,27 +24,23 @@ const navLinks: NavItem[] = [
       { title: "Parker", href: "/puppies/parker" },
       { title: "Hazel", href: "/puppies/hazel" },
       { title: "Bear", href: "/puppies/bear" },
+      { title: "Maple", href: "/puppies/maple" },
+      { title: "Brownie", href: "/puppies/brownie" },
+      { title: "Silver", href: "/puppies/silver" },
     ],
   },
-  {
-    title: "Health & Testing",
-    href: "/health-testing",
-    children: [
-      { title: "Protocols & Certifications", href: "/health-testing" },
-      { title: "Genetic Screens", href: "/genetic-testing" },
-    ],
-  },
+  
   {
     title: "Resources",
     href: "/resources",
     children: [
       { title: "Blog & Tips", href: "/blog" },
       { title: "About Corgies", href: "/breed" },
-      { title: "Testimonials", href: "/testimonials" },
       { title: "Contact Us", href: "/contact" },
     ],
   },
-  { title: "Contact", href: "/contact" },
+  {title:"Gallery", href:"/gallery"},
+  // { title: "Contact", href: "/contact" },
 ];
 
 export default navLinks;

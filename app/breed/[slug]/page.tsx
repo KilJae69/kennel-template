@@ -78,7 +78,7 @@ export default async function TipPage({
         title: 'Exercise'
       },
     ]}
-    smallClassName=" ml-2 w-full"
+    smallClassName=" ml-auto mr-2 mb-4"
   />
 </div>
         <Container>
@@ -119,19 +119,7 @@ export default async function TipPage({
                 et consectetur praesentium ea rerum fuga non modi natus facilis.
                 Expedita eligendi assumenda possimus culpa voluptatum?
               </p>
-              <p className=" text-paragraph mx-auto">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-                aut dignissimos nesciunt alias consectetur laboriosam tempora
-                tenetur aperiam quam molestiae mollitia sapiente aliquam culpa
-                deserunt, quasi ullam temporibus autem. Eaque! Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Aut amet culpa dolorem
-                suscipit placeat sequi quo recusandae incidunt sed odit ullam
-                esse, ratione necessitatibus aperiam eaque. Debitis officiis
-                voluptas ad?Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Dignissimos possimus vitae temporibus autem reprehenderit,
-                et consectetur praesentium ea rerum fuga non modi natus facilis.
-                Expedita eligendi assumenda possimus culpa voluptatum?
-              </p>
+              
             </div>
           </FadeIn>
         </Container>

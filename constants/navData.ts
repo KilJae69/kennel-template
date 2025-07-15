@@ -2,7 +2,7 @@ export type NavItem = {
   title: string;
   href: string;
   children?: NavItem[];
-}
+};
 
 const navLinks: NavItem[] = [
   { title: "Home", href: "/" },
@@ -10,12 +10,12 @@ const navLinks: NavItem[] = [
   {
     title: "Our Champions",
     href: "/dogs",
-    children: [
-      { title: "Thor", href: "/dogs/thor" },
-      { title: "Winston", href: "/dogs/winston" },
-      { title: "Luna", href: "/dogs/luna" },
-      { title: "Bella", href: "/dogs/bella" },
-    ],
+    // children: [
+    //   { title: "Thor", href: "/dogs/thor" },
+    //   { title: "Winston", href: "/dogs/winston" },
+    //   { title: "Luna", href: "/dogs/luna" },
+    //   { title: "Bella", href: "/dogs/bella" },
+    // ],
   },
   {
     title: "Puppies",
@@ -29,7 +29,7 @@ const navLinks: NavItem[] = [
       { title: "Silver", href: "/puppies/silver" },
     ],
   },
-  
+
   {
     title: "Resources",
     href: "/resources",
@@ -37,9 +37,10 @@ const navLinks: NavItem[] = [
       { title: "Blog & Tips", href: "/blog" },
       { title: "About Corgies", href: "/breed" },
       { title: "Contact Us", href: "/contact" },
+      { title: "Gallery", href: "/gallery" },
     ],
   },
-  {title:"Gallery", href:"/gallery"},
+
   // { title: "Contact", href: "/contact" },
 ];
 

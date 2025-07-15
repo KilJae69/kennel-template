@@ -6,6 +6,8 @@ import PageIntro from "@/components/shared/PageIntro";
 import SectionTitle from "@/components/shared/SectionTitle";
 
 import { Award, Heart, HeartPulse, Ruler, Smile, Trophy } from "lucide-react";
+import Image from "next/image";
+import { Suspense } from "react";
 
 export default function DogsPage() {
   return (
@@ -45,7 +47,10 @@ export default function DogsPage() {
         <Container>
           <div className="flex flex-col items-center space-y-8">
             <SectionTitle text="Our Lads" accentText="& Lassies" />
+            <Suspense fallback={<Fallback/>}>
+
             <DogsFilterList />
+            </Suspense>
           </div>
         </Container>
       </section>
@@ -111,4 +116,17 @@ export default function DogsPage() {
       <PuppiesForSaleSection />
     </>
   );
+}
+
+function Fallback(){
+  return (
+    <div className="flex items-center relative justify-center min-h-screen">
+         <Image
+           src="/bouncing-circles.svg"
+           width={300}
+           height={300}
+           alt="Loading"
+         />
+       </div>
+  )
 }

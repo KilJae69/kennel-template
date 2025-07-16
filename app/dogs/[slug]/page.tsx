@@ -8,18 +8,13 @@ import PageIntro from "@/components/shared/PageIntro";
 import SectionTitle from "@/components/shared/SectionTitle";
 import ContactForm from "@/components/shared/ContactForm";
 
-import {
-  Trophy,
-  Ribbon,
-  Heart,
-  
-} from "lucide-react";
+import { Trophy, Ribbon, Heart } from "lucide-react";
 
 import { champions } from "@/constants/championsData";
 import { AnimatedTimeline } from "@/components/ui/animated-timeline";
 import { mapTitlesToTimelineEvents } from "@/lib/utils";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
-
+import { IconFactory } from "@/components/shared/IconFactory";
 
 export function generateStaticParams() {
   return champions.map((c) => ({ slug: c.slug }));
@@ -156,7 +151,7 @@ export default async function ChampionPage({
         </Container>
       </section>
 
-    <TestimonialsSection/>
+      <TestimonialsSection />
 
       {/* 5) Contact Form */}
       <section className="my-16 lg:my-28">
@@ -174,20 +169,12 @@ export default async function ChampionPage({
                     <span className="absolute w-full h-px -bottom-1 left-0 bg-primary-accent" />
                   </h4>
                   <ul className="space-y-2">
-                    {champ.availableFor.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <li
-                          key={item.label}
-                          className="flex items-center gap-2"
-                        >
-                          <Icon className={`size-8 ${item.color}`} />
-                          <span className="text-paragraph flex-1">
-                            {item.label}
-                          </span>
-                        </li>
-                      );
-                    })}
+                    {champ.availableFor.map(({ key, label, color }) => (
+                      <li key={key} className="flex items-center gap-2">
+                        <IconFactory name={key} className={`size-8 ${color}`} />
+                        <span>{label}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="flex flex-col gap-4">
@@ -196,46 +183,44 @@ export default async function ChampionPage({
                     <span className="absolute w-full h-px -bottom-1 left-0 bg-primary-accent" />
                   </h4>
                   <ul className="space-y-2">
-                    {champ.currentStatus.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <li
-                          key={item.label}
-                          className="flex items-center gap-2"
-                        >
-                          <Icon className={`size-8 ${item.color}`} />
-                          <span className="text-paragraph flex-1">
-                            {item.label}
-                          </span>
-                        </li>
-                      );
-                    })}
+                    {champ.currentStatus.map(({ key, label, color }) => (
+                      <li key={key} className="flex items-center gap-2">
+                        <IconFactory name={key} className={`size-8 ${color}`} />
+                        <span>{label}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Transition paragraph */}
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-lg text-paragraph">
-            {champ.gender === "Male" ? (
-              <>
-                {champ.name} is currently available for select services. Whether you&apos;re interested in stud services, 
-                breeding consultations, or having him appear at your event, we&apos;d love to discuss how <span className="text-primary-accent">{champ.name}</span>{" "} 
-                can contribute to your breeding program or special occasion.
-              </>
-            ) : (
-              <>
-                {champ.name} represents the finest qualities of our breeding program. If you&apos;re interested in 
-                future breeding prospects, show appearances, or learning more about her lineage and achievements, 
-                please reach out to discuss opportunities.
-              </>
-            )}
-          </p>
-          <p className="mt-4 text-lg font-medium text-primary-accent">
-            Complete the form below and we&apos;ll respond within 24-48 hours.
-          </p>
-        </div>
+            <div className="text-center max-w-2xl mx-auto">
+              <p className="text-lg text-paragraph">
+                {champ.gender === "Male" ? (
+                  <>
+                    {champ.name} is currently available for select services.
+                    Whether you&apos;re interested in stud services, breeding
+                    consultations, or having him appear at your event, we&apos;d
+                    love to discuss how{" "}
+                    <span className="text-primary-accent">{champ.name}</span>{" "}
+                    can contribute to your breeding program or special occasion.
+                  </>
+                ) : (
+                  <>
+                    {champ.name} represents the finest qualities of our breeding
+                    program. If you&apos;re interested in future breeding
+                    prospects, show appearances, or learning more about her
+                    lineage and achievements, please reach out to discuss
+                    opportunities.
+                  </>
+                )}
+              </p>
+              <p className="mt-4 text-lg font-medium text-primary-accent">
+                Complete the form below and we&apos;ll respond within 24-48
+                hours.
+              </p>
+            </div>
 
             <div className="w-full ">
               <ContactForm />

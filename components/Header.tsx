@@ -4,13 +4,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { m } from "motion/react";
-import { ChevronDown } from "lucide-react";
+
 
 import { Container } from "./shared/Container";
 import navLinks from "@/constants/navData";
 import { useHeaderScroll } from "@/lib/hooks/useHeaderScroll";
 import { ScrollProgress } from "./ui/scroll-progress";
 import NavModal from "./NavModal";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu";
 
 export default function Header() {
   const { headerState, positions } = useHeaderScroll();
@@ -59,39 +60,45 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:block relative ">
-              <ul className="flex space-x-6">
-                {navLinks.map((item) => (
-                  <li key={item.href} className="relative  group">
-                    <Link
-                      href={item.href}
-                      className="flex items-center text-primary whitespace-nowrap font-semibold hover:text-primary-accent transition-all duration-300"
-                    >
-                      {item.title}
-                      {item.children && (
-                        <ChevronDown className="ml-1 w-5 h-5 text-primary-lighter group-hover:text-primary-accent transition-colors duration-200" />
-                      )}
-                    </Link>
-                    {item.children && (
-                      <div className="absolute z-50 left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ul className="p-4 space-y-2">
-                          {item.children.map((child) => (
-                            <li key={child.href}>
-                              <Link
-                                href={child.href}
-                                className="block text-primary-lighter hover:text-primary-accent"
-                              >
-                                {child.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </li>
+            
+            <NavigationMenu className="hidden md:block" viewport={false}>
+  <NavigationMenuList className="flex space-x-6">
+    {navLinks.map((item) => (
+      <NavigationMenuItem key={item.href}>
+        {item.children ? (
+          <>
+            <NavigationMenuTrigger className="text-primary whitespace-nowrap font-semibold hover:text-primary-accent bg-transparent data-[state=open]:bg-transparent">
+              {item.title}
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="absolute left-0 top-full bg-white shadow-lg rounded-lg">
+              <ul className="grid w-[200px] gap-2 p-4">
+                {item.children.map((child) => (
+                  <ListItem 
+                    key={child.href} 
+                    href={child.href} 
+                    title={child.title}
+                  />
                 ))}
               </ul>
-            </nav>
+            </NavigationMenuContent>
+          </>
+        ) : (
+          <NavigationMenuLink asChild>
+            <Link
+              href={item.href}
+              className={
+                 "text-primary font-semibold hover:text-primary-accent bg-transparent"
+              }
+            >
+              {item.title}
+            </Link>
+          </NavigationMenuLink>
+        )}
+      </NavigationMenuItem>
+    ))}
+  </NavigationMenuList>
+</NavigationMenu>
+           
 
             {/* Nav Modal (mobile trigger, cart, etc.) */}
             <div className="flex items-center gap-4">
@@ -105,3 +112,24 @@ export default function Header() {
     </m.header>
   );
 }
+
+const ListItem = ({
+  title,
+  href,
+}: {
+  title: string;
+  href: string;
+}) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <Link
+          href={href}
+          className="block w-full text-primary-lighter hover:text-primary-accent whitespace-nowrap"
+        >
+          {title}
+        </Link>
+      </NavigationMenuLink>
+    </li>
+  );
+};

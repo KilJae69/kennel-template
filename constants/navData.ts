@@ -7,6 +7,7 @@ export type NavItem = {
 const navLinks: NavItem[] = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
+  {title:"Litters",href:"/litters"},
   {
     title: "Our Champions",
     href: "/dogs",
@@ -17,18 +18,18 @@ const navLinks: NavItem[] = [
     //   { title: "Bella", href: "/dogs/bella" },
     // ],
   },
-  {
-    title: "Puppies",
-    href: "/puppies",
-    children: [
-      { title: "Parker", href: "/puppies/parker" },
-      { title: "Hazel", href: "/puppies/hazel" },
-      { title: "Bear", href: "/puppies/bear" },
-      { title: "Maple", href: "/puppies/maple" },
-      { title: "Brownie", href: "/puppies/brownie" },
-      { title: "Silver", href: "/puppies/silver" },
-    ],
-  },
+  // {
+  //   title: "Puppies",
+  //   href: "/puppies",
+  //   children: [
+  //     { title: "Parker", href: "/puppies/parker" },
+  //     { title: "Hazel", href: "/puppies/hazel" },
+  //     { title: "Bear", href: "/puppies/bear" },
+  //     { title: "Maple", href: "/puppies/maple" },
+  //     { title: "Brownie", href: "/puppies/brownie" },
+  //     { title: "Silver", href: "/puppies/silver" },
+  //   ],
+  // },
 
   {
     title: "Resources",

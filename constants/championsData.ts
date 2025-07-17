@@ -1,5 +1,6 @@
 // src/constants/championsData.ts
-import { Puppy } from "./puppiesData"
+
+import { Puppy } from "./litters";
 
 export type IconKey =
   | "showsEntered"

@@ -9,14 +9,17 @@ export type GalleryCategory = "puppies" | "parents" | "ultrasound" | "developmen
 
 export type Puppy = {
   id: string;
+  slug:string;
   name: string;
   gender: "Male" | "Female";
-  color: string;
-  weight: string;
-  status: PuppyStatus;
+  color?: string;
+  weight?: string;
+  status?: PuppyStatus;
   image: string;
-  personality: string;
+  desc: string;
 }
+
+
 
 export type TimelineEvent = {
   date: string;
@@ -73,7 +76,7 @@ export const litters: Litter[] = [
     breed: "Pembroke Welsh Corgi",
     birthDate: "December 15, 2024",
     puppyCount: 6,
-    availablePuppies: 2,
+    availablePuppies: 3,
     status: "available",
     healthTesting: ["OFA Hips: Good", "OFA Eyes: Clear", "DM Clear", "EIC Clear", "vWD Clear"],
     registrations: ["AKC Full Registration", "CHIC Certified Parents"],
@@ -100,29 +103,57 @@ export const litters: Litter[] = [
     ],
     gallery: [
       {
-        id: "sd-pup1",
+        id: "1",
         src: "https://images.unsplash.com/photo-1652799527970-a989cba52934?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Silver Dreams puppy 1",
         caption: "Puppy at 8 weeks",
         category: "puppies"
       },
       {
-        id: "sd-pup2",
+        id: "2",
         src: "https://images.unsplash.com/photo-1653760188729-894d6518581e?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Silver Dreams puppy 2",
         caption: "Puppy at 8 weeks",
         category: "puppies"
       },
       {
-        id: "sd-group",
+        id: "3",
         src: "https://images.unsplash.com/photo-1628344806892-11873eba7974?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGNvcmdpfGVufDB8fDB8fHwy",
         alt: "Silver Dreams litter",
         caption: "Full litter at 6 weeks",
         category: "puppies"
       },
       {
-        id: "sd-group-1",
+        id: "4",
         src: "https://images.unsplash.com/photo-1636910824828-c4b5efb93e21?q=80&w=904&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams litter",
+        caption: "Full litter at 6 weeks",
+        category: "puppies"
+      },
+      {
+        id: "5",
+        src: "https://images.unsplash.com/photo-1622065713075-a5e28dcc802c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams puppy 1",
+        caption: "Puppy at 8 weeks",
+        category: "puppies"
+      },
+      {
+        id: "6",
+        src: "https://images.unsplash.com/photo-1731315100519-b5ac081644f7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams puppy 2",
+        caption: "Puppy at 8 weeks",
+        category: "puppies"
+      },
+      {
+        id: "7",
+        src: "https://images.unsplash.com/photo-1622820020729-2839a36db400?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams litter",
+        caption: "Full litter at 6 weeks",
+        category: "puppies"
+      },
+      {
+        id: "8",
+        src: "https://images.unsplash.com/photo-1557973989-4ea43af05a91?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Silver Dreams litter",
         caption: "Full litter at 6 weeks",
         category: "puppies"
@@ -151,23 +182,36 @@ export const litters: Litter[] = [
     puppies: [
       {
         id: "rs1",
-        name: "Apollo",
+        slug:"parker",
+        name: "Parker",
         gender: "Male",
         color: "Red & White",
         weight: "3.2 lbs",
         status: "available",
         image: "/images/puppies/dog-1.jpg",
-        personality: "Confident and curious, always first to explore"
+        desc: "Intelligent and inquisitive—always the first to explore a new corner of the yard."
       },
       {
         id: "rs2",
-        name: "Athena",
+        slug:"hazel",
+        name: "Hazel",
         gender: "Female",
         color: "Red & White",
         weight: "2.9 lbs",
         status: "available",
         image: "/images/puppies/dog-2.jpg",
-        personality: "Sweet and gentle, loves cuddles"
+        desc: "Gentle and affectionate—will curl up in your lap at the drop of a hat."
+      },
+      {
+        id: "rs3",
+        slug:"brownie",
+        name: "Brownie",
+        gender: "Female",
+        color: "Red & White",
+        weight: "2.9 lbs",
+        status: "available",
+        image: "/images/puppies/dog-3.jpg",
+        desc: "Calm observer with a heart of gold—always by your side to comfort and cuddle."
       }
     ]
   },
@@ -243,55 +287,64 @@ export const litters: Litter[] = [
     ],
     gallery: [
       {
-        id: "sd-pup1",
+        id: "1",
         src: "https://images.unsplash.com/photo-1652799527970-a989cba52934?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Silver Dreams puppy 1",
         caption: "Puppy at 8 weeks",
         category: "puppies"
       },
       {
-        id: "sd-pup2",
+        id: "2",
         src: "https://images.unsplash.com/photo-1653760188729-894d6518581e?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Silver Dreams puppy 2",
         caption: "Puppy at 8 weeks",
         category: "puppies"
       },
       {
-        id: "sd-group",
+        id: "3",
         src: "https://images.unsplash.com/photo-1628344806892-11873eba7974?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGNvcmdpfGVufDB8fDB8fHwy",
         alt: "Silver Dreams litter",
         caption: "Full litter at 6 weeks",
         category: "puppies"
       },
       {
-        id: "sd-group-1",
+        id: "4",
         src: "https://images.unsplash.com/photo-1636910824828-c4b5efb93e21?q=80&w=904&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams litter",
+        caption: "Full litter at 6 weeks",
+        category: "puppies"
+      },
+      {
+        id: "5",
+        src: "https://images.unsplash.com/photo-1622065713075-a5e28dcc802c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams puppy 1",
+        caption: "Puppy at 8 weeks",
+        category: "puppies"
+      },
+      {
+        id: "6",
+        src: "https://images.unsplash.com/photo-1731315100519-b5ac081644f7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams puppy 2",
+        caption: "Puppy at 8 weeks",
+        category: "puppies"
+      },
+      {
+        id: "7",
+        src: "https://images.unsplash.com/photo-1622820020729-2839a36db400?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        alt: "Silver Dreams litter",
+        caption: "Full litter at 6 weeks",
+        category: "puppies"
+      },
+      {
+        id: "8",
+        src: "https://images.unsplash.com/photo-1557973989-4ea43af05a91?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Silver Dreams litter",
         caption: "Full litter at 6 weeks",
         category: "puppies"
       }
     ],
     puppies: [
-      {
-        id: "sd1",
-        name: "Mercury",
-        gender: "Male",
-        color: "Red & White",
-        weight: "5.1 lbs",
-        status: "sold",
-       image: "/images/puppies/dog-3.jpg",
-        personality: "Energetic and playful, loves fetch"
-      },
-      {
-        id: "sd2",
-        name: "Venus",
-        gender: "Female",
-        color: "Red & White",
-        weight: "4.8 lbs",
-        status: "sold",
-        image: "/images/puppies/dog-4.jpg",
-        personality: "Calm and affectionate, great with kids"
-      }
+     
     ]
   }
 ];

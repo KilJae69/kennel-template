@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/shared/Container";
@@ -15,34 +13,46 @@ import { FadeIn } from "../shared/FadeIn";
 
 const puppies = [
   {
-    id: "parker",
+    id: "rs1",
+    slug: "parker",
     name: "Parker",
     gender: "Male",
-    desc: "He’s a researcher! Intelligent, shy, calm, but inquisitive.",
-    slug: "parker",
+    color: "Red & White",
+    weight: "3.2 lbs",
+    status: "available",
+    image: "/images/puppies/dog-1.jpg",
+    desc: "Intelligent and inquisitive—always the first to explore a new corner of the yard.",
     coords: { x: "25%", y: "35%" },
   },
   {
-    id: "bear",
-    name: "Bear",
-    gender: "Male",
-    desc: "Playful leader of the pack—curious, brave, always on the move.",
-    slug: "bear",
+    id: "rs2",
+    slug: "hazel",
+    name: "Hazel",
+    gender: "Female",
+    color: "Red & White",
+    weight: "2.9 lbs",
+    status: "available",
+    image: "/images/puppies/dog-2.jpg",
+    desc: "Gentle and affectionate—will curl up in your lap at the drop of a hat.",
     coords: { x: "40%", y: "60%" },
   },
   {
-    id: "hazel",
-    name: "Hazel",
+    id: "rs3",
+    slug: "brownie",
+    name: "Brownie",
     gender: "Female",
-    desc: "Sweet and affectionate—loves cuddles and gentle family time.",
-    slug: "hazel",
+    color: "Red & White",
+    weight: "2.9 lbs",
+    status: "available",
+    image: "/images/puppies/dog-3.jpg",
+    desc: "Calm observer with a heart of gold—always by your side to comfort and cuddle.",
     coords: { x: "70%", y: "65%" },
   },
 ];
 
 export default function PuppiesForSaleSection() {
   return (
-    <section className="relative grid grid-cols-1 sm:grid-cols-2 my-16  lg:my-28">
+    <section className="relative grid grid-cols-1 sm:grid-cols-2 ">
       <div className="bg-primary-accent max-h-[600px] overflow-hidden">
         <Container className="relative">
           <div className="flex flex-col lg:flex-row">
@@ -59,7 +69,7 @@ export default function PuppiesForSaleSection() {
                 and ready to bring endless joy to your family.
               </p>
               <RippleLinkButton invert href="/puppies">
-                View All Puppies
+                View Available Puppies
               </RippleLinkButton>
             </FadeIn>
           </div>
@@ -73,7 +83,6 @@ export default function PuppiesForSaleSection() {
           fill
           sizes="(min-width: 1140px) calc(48.33vw + 50px), (min-width: 920px) 50vw, (min-width: 640px) 499px, 100vw"
           className="object-cover"
-          
         />
         <div className="absolute inset-0 bg-black/30" />
         {/* hotspots (on top of image) */}
@@ -103,7 +112,7 @@ export default function PuppiesForSaleSection() {
                   className="text-primary-accent group hover:text-primary-accent-dark flex items-center gap-2 font-medium"
                 >
                   Learn More
-                  <FaArrowRight className="group-hover:translate-x-2 transition duration-300 size-3"/>
+                  <FaArrowRight className="group-hover:translate-x-2 transition duration-300 size-3" />
                 </Link>
               </HoverCardContent>
             </HoverCard>

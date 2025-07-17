@@ -123,7 +123,7 @@ export function ParentCard({
                       {titles?.length || 0} registered titles
                     </p>
                     {championData?.stats && (
-                      <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
+                      <div className="mt-2 grid grid-cols-2 gap-2 text-sm lg:text-md">
                         <span className="text-white/80">
                           Shows Entered: {championData.stats.showsEntered}
                         </span>
@@ -138,7 +138,7 @@ export function ParentCard({
                   </div>
 
                   {/* Pedigree */}
-                  <div className="bg-white/10 p-3 rounded-lg">
+                  {/* <div className="bg-white/10 p-3 rounded-lg">
                     <p className="text-white font-medium">Pedigree</p>
                     <p className="text-white/90">
                       {role === "Sire" ? "Father" : "Mother"} of{" "}
@@ -149,29 +149,55 @@ export function ParentCard({
                         Age: {championData.age} years
                       </p>
                     )}
+                  </div> */}
+
+                  {/* Health Clearances */}
+                  <div className="bg-white/10 p-3 rounded-lg">
+                    <p className="text-white font-medium">Health Clearances</p>
+                    {championData?.healthCerts?.length ? (
+                      <ul className="text-white/90 space-y-1 mt-1">
+                        {championData.healthCerts.map((cert, index) => (
+                          <li key={index} className="text-sm lg:text-md">{cert}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-white/80">OFA certified, DNA tested</p>
+                    )}
                   </div>
 
-                
-
-                
+                  {/* Current Status */}
+                  {/* {championData?.currentStatus && (
+                    <div className="bg-white/10 p-3 rounded-lg">
+                      <p className="text-white font-medium">Current Status</p>
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {championData.currentStatus.map((status) => (
+                          <span 
+                            key={status.key} 
+                            className={`text-xs px-2 py-1 rounded-full ${status.color} bg-white/10`}
+                          >
+                            {status.label}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )} */}
                 </div>
 
                 {/* Read More Link - positioned at bottom */}
-               
-                  <div className="mt-4 sticky bottom-0 pt-2 ">
-                    <Link
-                      href={`/dogs/${slug}`}
-                      className="w-full inline-flex items-center justify-between px-4 py-3 bg-white text-primary-accent hover:bg-white/90 rounded-lg transition-all duration-300 group/link"
-                      onClick={(e) => e.stopPropagation()}
-                      aria-label={`View full profile of ${name}`}
-                    >
-                      <span className="font-medium">View Full Profile</span>
-                      <span className="ml-2 transition-transform duration-300 group-hover/link:translate-x-1">
-                        →
-                      </span>
-                    </Link>
-                  </div>
-               
+
+                <div className="mt-4 sticky bottom-0 pt-2 ">
+                  <Link
+                    href={`/dogs/${slug}`}
+                    className="w-full inline-flex items-center justify-between px-4 py-3 bg-white text-primary-accent hover:bg-white/90 rounded-lg transition-all duration-300 group/link"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label={`View full profile of ${name}`}
+                  >
+                    <span className="font-medium">View Full Profile</span>
+                    <span className="ml-2 transition-transform duration-300 group-hover/link:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </div>
               </div>
             )}
           </div>

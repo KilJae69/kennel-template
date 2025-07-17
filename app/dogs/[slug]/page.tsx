@@ -15,6 +15,7 @@ import { AnimatedTimeline } from "@/components/ui/animated-timeline";
 import { mapTitlesToTimelineEvents } from "@/lib/utils";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import { IconFactory } from "@/components/shared/IconFactory";
+import { judgeTestimonials } from "@/constants/testimonialsData";
 
 export function generateStaticParams() {
   return champions.map((c) => ({ slug: c.slug }));
@@ -151,7 +152,13 @@ export default async function ChampionPage({
         </Container>
       </section>
 
-      <TestimonialsSection />
+      <TestimonialsSection
+        testimonials={judgeTestimonials}
+        sectionText="Judge's"
+        sectionAccentText="Comments"
+         sectionImage="/images/about/history-2.jpg"
+          sectionImageAlt="Cute Corgi puppy on bed"
+      />
 
       {/* 5) Contact Form */}
       <section className="my-16 lg:my-28">

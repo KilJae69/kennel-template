@@ -6,23 +6,38 @@ import Image from "next/image";
 import { Container } from "./Container";
 
 import SectionTitle from "./SectionTitle";
-import judgeTestimonials from "@/constants/judgesTestimonialsData";
+
 import { FaQuoteLeft } from "react-icons/fa6";
 import { useLazySwiper } from "@/lib/hooks/useLazySwiper";
+import { Testimonial } from "@/constants/testimonialsData";
 
-export default function TestimonialsSection() {
+type TestimonialsSectionProps = {
+  testimonials: Testimonial[];
+  sectionText: string;
+  sectionAccentText: string;
+  sectionImage: string;
+  sectionImageAlt: string;
+};
+
+export default function TestimonialsSection({
+  testimonials,
+  sectionText,
+  sectionAccentText,
+  sectionImage,
+  sectionImageAlt,
+}: TestimonialsSectionProps) {
   const { ref, SwiperComponent, SwiperSlideComponent, modules } =
     useLazySwiper();
   return (
     <section
       ref={ref}
-      className="relative grid grid-cols-1 sm:grid-cols-2 my-16  lg:my-28"
+      className="relative grid grid-cols-1 sm:grid-cols-2 "
     >
       <div className="relative  overflow-hidden">
         {" "}
         <Image
-          src="/images/about/history-2.jpg"
-          alt="Group of corgi puppies"
+          src={sectionImage}
+          alt={sectionImageAlt}
           fill
           sizes="(min-width: 1140px) calc(48.33vw + 50px), (min-width: 920px) 50vw, (min-width: 640px) 499px, 100vw"
           className="object-cover "
@@ -34,8 +49,8 @@ export default function TestimonialsSection() {
         <Container className="relative">
           <div className="max-w-2xl lg:pl-24 py-12 lg:py-24 text-white">
             <SectionTitle
-              text="Judge's"
-              accentText={`Comments`}
+              text={sectionText}
+              accentText={sectionAccentText}
               color="#fff"
               accentColor="#fff"
             />
@@ -51,7 +66,7 @@ export default function TestimonialsSection() {
                 className="testimonial-swiper mt-6"
               >
                 {/* Slide 1 */}
-                {judgeTestimonials.map((testimonial) => (
+                {testimonials.map((testimonial) => (
                   <SwiperSlideComponent key={testimonial.id}>
                     <div className=" text-black pb-3">
                       <p className="mb-14 text-paragraph italic !text-white">

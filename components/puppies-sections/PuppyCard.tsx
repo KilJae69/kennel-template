@@ -1,4 +1,5 @@
-import { Puppy } from "@/constants/puppiesData";
+
+import { Puppy } from "@/constants/litters";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Eye } from "lucide-react";
 import Image from "next/image";

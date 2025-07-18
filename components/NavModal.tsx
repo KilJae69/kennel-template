@@ -55,9 +55,9 @@ export default function NavModal() {
 
   
   return (
-    <Modal>
-      <ModalTrigger className="flex items-center gap-2">
-        <MdMenu className="group-hover:scale-90 transition-all size-8 md:size-10" />
+    <Modal >
+      <ModalTrigger className="flex lg:hidden items-center gap-2">
+        <MdMenu className="group-hover:scale-90 transition-all size-10" />
       
       </ModalTrigger>
 

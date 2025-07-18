@@ -108,10 +108,9 @@ export function ParentHeroSection({ litter }: { litter: Litter }) {
             {/* Single Connection Line */}
             <m.div
               variants={lineVariants}
-              className=" absolute h-1 w-full bg-gradient-to-r from-blue-400 via-rose-400 to-blue-400 top-23 left-0 origin-center"
+              className=" absolute h-1 w-full bg-gradient-to-r from-primary-accent/50 via-primary-accent to-primary-accent/50 top-23 left-0 origin-center"
               style={{
-                background:
-                  "linear-gradient(90deg, rgba(96, 165, 250, 0.7) 0%, rgba(244, 63, 94, 0.7) 50%, rgba(96, 165, 250, 0.7) 100%)",
+               
                 transformOrigin: "center",
               }}
             />

@@ -1,11 +1,14 @@
+import CertificationsSection from "@/components/about-sections/CertificationsSection";
 import PuppiesForSaleSection from "@/components/about-sections/PuppiesForSaleSection";
 import DogsFilterList from "@/components/dogs-sections/DogsFilterList";
+import BreedingPhilosophySection from "@/components/shared/BreedingPhilosophySection";
 import { Container } from "@/components/shared/Container";
+import GlareCTA from "@/components/shared/GlareCTA";
 import { MovingBorderBadge } from "@/components/shared/MovingBorderBadge";
 import PageIntro from "@/components/shared/PageIntro";
 import SectionTitle from "@/components/shared/SectionTitle";
 
-import { Award, Heart, HeartPulse, Ruler, Smile, Trophy } from "lucide-react";
+import { Award, Heart, Trophy } from "lucide-react";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -47,86 +50,39 @@ export default function DogsPage() {
         <Container>
           <div className="flex flex-col items-center space-y-8">
             <SectionTitle text="Our Lads" accentText="& Lassies" />
-            <Suspense fallback={<Fallback/>}>
-
-            <DogsFilterList />
+            <Suspense fallback={<Fallback />}>
+              <DogsFilterList />
             </Suspense>
           </div>
         </Container>
       </section>
 
       <section className="bg-gray-50 py-16 lg:py-28">
-        <Container>
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <SectionTitle text="Our Breeding" accentText="Commitment" />
-              <p className=" text-paragraph mt-8 max-w-3xl mx-auto">
-                Every puppy we produce stems from our unwavering dedication to
-                these core principles:
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Health First",
-                  desc: "All breeding dogs undergo OFA certifications, genetic testing, and regular health screenings to ensure the strongest foundation for our puppies.",
-                  icon: (
-                    <HeartPulse className="size-8 text-primary-accent animate-pulse" />
-                  ),
-                  bg: "bg-primary-accent/5",
-                },
-                {
-                  title: "Ideal Temperament",
-                  desc: "We prioritize stable, confident personalities that excel both in the show ring and as family companions.",
-                  icon: (
-                    <Smile className="size-8 text-primary-accent animate-pulse" />
-                  ),
-                  bg: "bg-primary-accent/10",
-                },
-                {
-                  title: "Breed Standard",
-                  desc: "Meticulous attention to AKC specifications for structure, movement, and type in every breeding decision.",
-                  icon: (
-                    <Ruler className="size-8 text-primary-accent animate-pulse" />
-                  ),
-                  bg: "bg-primary-accent/5",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className={`${item.bg} p-8 rounded-xl border border-primary-accent/10 hover:border-primary-accent/30 transition-all duration-300 group`}
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="bg-white size-16 flex items-center justify-center p-3 rounded-full shadow-sm group-hover:shadow-md transition-shadow mb-4">
-                      {item.icon}
-                    </div>
-                    <h4 className="text-xl font-bold text-primary-accent mb-3">
-                      {item.title}
-                    </h4>
-                    <p className="text-paragraph">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
+        <BreedingPhilosophySection />
       </section>
 
       <PuppiesForSaleSection />
+      <CertificationsSection/>
+      <GlareCTA
+        purpose="contact"
+        titleText="Ready to"
+        titleAccentText="Learn More?"
+        paragraph="Whether you’d like to tour our facility, discuss upcoming breedings,
+            or arrange a meet-and-greet with our AKC champions, we’re here to help."
+      />
     </>
   );
 }
 
-function Fallback(){
+function Fallback() {
   return (
     <div className="flex items-center relative justify-center min-h-screen">
-         <Image
-           src="/bouncing-circles.svg"
-           width={300}
-           height={300}
-           alt="Loading"
-         />
-       </div>
-  )
+      <Image
+        src="/bouncing-circles.svg"
+        width={300}
+        height={300}
+        alt="Loading"
+      />
+    </div>
+  );
 }

@@ -5,13 +5,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { m } from "motion/react";
 
-
 import { Container } from "./shared/Container";
 import navLinks from "@/constants/navData";
 import { useHeaderScroll } from "@/lib/hooks/useHeaderScroll";
 import { ScrollProgress } from "./ui/scroll-progress";
 import NavModal from "./NavModal";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "./ui/navigation-menu";
+import RippleLinkButton from "./shared/RippleLinkButton";
 
 export default function Header() {
   const { headerState, positions } = useHeaderScroll();
@@ -21,7 +28,9 @@ export default function Header() {
   return (
     <m.header
       initial={{ y: -150 }}
-      animate={{ y: headerState === "hidden" ? -positions.desktop.topBarHeight : 0 }}
+      animate={{
+        y: headerState === "hidden" ? -positions.desktop.topBarHeight : 0,
+      }}
       transition={{ type: "tween", duration: 0.2 }}
       className="fixed z-[1000] top-0 left-0 right-0"
     >
@@ -46,8 +55,8 @@ export default function Header() {
         <Container>
           <div className="flex items-center justify-between gap-8">
             {/* Logo */}
-            <Link href="/">
-              <div className="relative w-[140px] h-[80px]">
+            <Link className="flex-1 lg:flex-0" href="/">
+              <div className="relative max-w-[140px] lg:w-[140px] h-[80px]">
                 <Image
                   src="/logo.webp"
                   className="object-contain"
@@ -60,50 +69,53 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            
-            <NavigationMenu className="hidden md:block" viewport={false}>
-  <NavigationMenuList className="flex space-x-6">
-    {navLinks.map((item) => (
-      <NavigationMenuItem key={item.href}>
-        {item.children ? (
-          <>
-            <NavigationMenuTrigger className="text-primary whitespace-nowrap font-semibold hover:text-primary-accent bg-transparent data-[state=open]:bg-transparent">
-              {item.title}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className="absolute left-0 top-full bg-white shadow-lg rounded-lg">
-              <ul className="grid w-[200px] gap-2 p-4">
-                {item.children.map((child) => (
-                  <ListItem 
-                    key={child.href} 
-                    href={child.href} 
-                    title={child.title}
-                  />
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </>
-        ) : (
-          <NavigationMenuLink asChild>
-            <Link
-              href={item.href}
-              className={
-                 "text-primary font-semibold hover:text-primary-accent bg-transparent"
-              }
-            >
-              {item.title}
-            </Link>
-          </NavigationMenuLink>
-        )}
-      </NavigationMenuItem>
-    ))}
-  </NavigationMenuList>
-</NavigationMenu>
-           
 
-            {/* Nav Modal (mobile trigger, cart, etc.) */}
-            <div className="flex items-center gap-4">
+            <NavigationMenu className="hidden flex-1 lg:block" viewport={false}>
+              <NavigationMenuList className="flex space-x-6">
+                {navLinks.map((item) => (
+                  <NavigationMenuItem key={item.href}>
+                    {item.children ? (
+                      <>
+                        <NavigationMenuTrigger className="text-primary whitespace-nowrap font-semibold hover:text-primary-accent bg-transparent data-[state=open]:bg-transparent">
+                          {item.title}
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent className="absolute left-0 border-primary-accent p-0 top-full bg-white shadow-lg rounded-lg">
+                          <ul className="grid w-[200px] gap-2 p-4">
+                            {item.children.map((child) => (
+                              <ListItem
+                                key={child.href}
+                                href={child.href}
+                                title={child.title}
+                              />
+                            ))}
+                          </ul>
+                        </NavigationMenuContent>
+                      </>
+                    ) : (
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={item.href}
+                          className={
+                            "text-primary whitespace-nowrap font-semibold hover:text-primary-accent bg-transparent"
+                          }
+                        >
+                          {item.title}
+                        </Link>
+                      </NavigationMenuLink>
+                    )}
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {/* Nav Modal Mobile */}
+            <div className="flex   items-center gap-4">
+              <RippleLinkButton className="text-md whitespace-nowrap px-4 py-2" href="/contact">
+                Contact Us
+              </RippleLinkButton>{" "}
               <NavModal />
             </div>
+           
           </div>
         </Container>
       </m.div>
@@ -113,13 +125,7 @@ export default function Header() {
   );
 }
 
-const ListItem = ({
-  title,
-  href,
-}: {
-  title: string;
-  href: string;
-}) => {
+const ListItem = ({ title, href }: { title: string; href: string }) => {
   return (
     <li>
       <NavigationMenuLink asChild>

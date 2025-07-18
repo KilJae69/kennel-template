@@ -9,7 +9,7 @@ const navLinks: NavItem[] = [
   { title: "About", href: "/about" },
   {title:"Litters",href:"/litters"},
   {
-    title: "Our Champions",
+    title: "Our Dogs",
     href: "/dogs",
     // children: [
     //   { title: "Thor", href: "/dogs/thor" },

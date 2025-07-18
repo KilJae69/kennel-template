@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import InnerLayout from "@/components/InnerLayout";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   subsets: ["latin"], // Choose language subsets as needed
@@ -23,10 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className}  antialiased`}>
+    <html className="h-full" lang="en">
+      <body className={`${poppins.className} flex min-h-full flex-col antialiased`}>
        <InnerLayout>
         {children}
+        <Toaster/>
        </InnerLayout>
       </body>
     </html>

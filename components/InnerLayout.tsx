@@ -2,6 +2,7 @@
 import { domAnimation, LazyMotion } from "motion/react";
 import { ReactNode } from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 
 export default function InnerLayout({children}:{children:ReactNode}) {
   return (
@@ -9,6 +10,7 @@ export default function InnerLayout({children}:{children:ReactNode}) {
           <Header />
           <main className="">{children}</main>
           <div id="modal-root"></div>
+          <Footer/>
         </LazyMotion>
   );
   

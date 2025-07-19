@@ -7,7 +7,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Quote } from "lucide-react";
 import SectionTitle from "@/components/shared/SectionTitle";
-import ContactForm from "@/components/shared/ContactForm";
+
+import PuppyApplicationForm from "@/components/shared/PuppyApplicationForm";
 
 export function generateStaticParams() {
   return puppies.map((b) => ({ slug: b.slug }));
@@ -134,7 +135,7 @@ export default async function SinglePuppyPage({
               accentText={`${puppy.name} ?`}
             />
 
-            <ContactForm />
+            <PuppyApplicationForm />
           </div>
         </Container>
       </section>

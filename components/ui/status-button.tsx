@@ -8,18 +8,20 @@ interface StatusButtonProps {
   isSubmitting: boolean;
   isSubmitSuccessful: boolean;
   onReset?: () => void;
+  className?: string;
 }
 
-export default function StatusButton({ 
-  isSubmitting, 
+export default function StatusButton({
+  isSubmitting,
   isSubmitSuccessful,
-  onReset
+  onReset,
+  className,
 }: StatusButtonProps) {
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    
+
     if (isSubmitSuccessful) {
       setShowSuccess(true);
       timer = setTimeout(() => {
@@ -45,7 +47,10 @@ export default function StatusButton({
     <button
       type="submit"
       disabled={isSubmitting || showSuccess}
-      className="group relative cursor-pointer h-12 w-full overflow-hidden rounded-md bg-primary-accent px-6 text-lg font-semibold text-white transition-colors duration-300 hover:bg-primary-accent/80 disabled:hover:bg-primary-accent"
+      className={cn(
+        "group relative cursor-pointer h-12 w-full overflow-hidden rounded-md bg-primary-accent px-6 text-lg font-semibold text-white transition-colors duration-300 hover:bg-primary-accent/80 disabled:hover:bg-primary-accent",
+        className
+      )}
     >
       <AnimatePresence mode="wait" initial={false}>
         <m.span
@@ -70,7 +75,7 @@ export default function StatusButton({
           {status === "loading" ? (
             <CircleDashed className="size-8 animate-spin" />
           ) : (
-            status
+            <span className="whitespace-nowrap">{status}</span>
           )}
         </m.span>
       </AnimatePresence>

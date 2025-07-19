@@ -5,7 +5,7 @@ import { Container } from "@/components/shared/Container";
 import { FadeIn } from "@/components/shared/FadeIn";
 import PageIntro from "@/components/shared/PageIntro";
 import SectionTitle from "@/components/shared/SectionTitle";
-import ContactForm from "@/components/shared/ContactForm";
+// import ContactForm from "@/components/shared/ContactForm";
 import { Baby, Calendar, BadgeInfo, PawPrint, Heart } from "lucide-react";
 import { litters } from "@/constants/litters";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
@@ -21,6 +21,7 @@ import {
 } from "@/constants/testimonialsData";
 import { InfoCard } from "@/components/puppies-sections/LitterInfoCard";
 import { MovingBorderBadge } from "@/components/shared/MovingBorderBadge";
+import PuppyApplicationForm from "@/components/shared/PuppyApplicationForm";
 
 export function generateStaticParams() {
   return litters.map((l) => ({ slug: l.slug }));
@@ -243,7 +244,8 @@ export default async function LitterPage({
             </div>
 
             <div className="w-full">
-              <ContactForm />
+              {/* <ContactForm /> */}
+              <PuppyApplicationForm/>
             </div>
           </div>
         </Container>

@@ -18,17 +18,17 @@ const navLinks: NavItem[] = [
     //   { title: "Bella", href: "/dogs/bella" },
     // ],
   },
-   {
-     title: "Puppies",
-     href: "/puppies",
-     children: [
-       { title: "Parker", href: "/puppies/parker" },
-       { title: "Hazel", href: "/puppies/hazel" },
+  //  {
+  //    title: "Puppies",
+  //    href: "/puppies",
+  //    children: [
+  //      { title: "Parker", href: "/puppies/parker" },
+  //      { title: "Hazel", href: "/puppies/hazel" },
      
-       { title: "Brownie", href: "/puppies/brownie" },
+  //      { title: "Brownie", href: "/puppies/brownie" },
        
-     ],
-   },
+  //    ],
+  //  },
 
   {
     title: "Resources",

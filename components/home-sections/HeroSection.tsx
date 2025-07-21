@@ -43,7 +43,7 @@ export default function HeroSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -150 }}
               transition={{ duration: 0.6 }}
-              className=" flex flex-col items-center lg:items-start max-w-2xl mx-auto lg:mx-0"
+              className=" flex flex-col items-center lg:items-start max-w-3xl mx-auto lg:mx-0"
             >
               <h1 className="text-h1 font-extrabold leading-tight">
                 <span className="text-primary-accent">{slide.brand}</span>{" "}
@@ -54,7 +54,7 @@ export default function HeroSlider() {
               </p>
               <div className="mt-6  flex flex-col lg:flex-row gap-4">
                 <RippleLinkButton href="/contact">Contact Us</RippleLinkButton>
-                <SlideArrowLink href="/puppies" text="Explore Puppies" />
+                <SlideArrowLink href="/litters" text="Explore Our Litters" />
               </div>
             </m.div>
           </AnimatePresence>

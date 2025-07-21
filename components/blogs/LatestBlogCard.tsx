@@ -13,7 +13,7 @@ export default function LatestBlogCard({
 }) {
   return (
     <Link
-      href={`/blogs/${blog.slug}`}
+      href={`/blog/${blog.slug}`}
       className="group relative block overflow-hidden pb-8  transition"
     >
       <div className="relative overflow-hidden aspect-video rounded-lg w-full">

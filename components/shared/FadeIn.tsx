@@ -5,7 +5,7 @@ import { m, useReducedMotion } from 'motion/react'
 
 const FadeInStaggerContext = createContext(false)
 
-const viewport = { once: true, margin: '0px 0px -100px' }
+const viewport = { once: true, margin: '0px 0px -50px' }
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 

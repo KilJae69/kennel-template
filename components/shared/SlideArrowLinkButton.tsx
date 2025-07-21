@@ -41,12 +41,12 @@ export default function SlideArrowLink({
       onPointerDown={handlePointerDown}
       onPointerLeave={handlePointerLeave}
       onPointerUp={handlePointerUp}
-      className={`group relative rounded-full border border-transparent cursor-pointer bg-transparent p-2 text-xl font-semibold ${className}`}
+      className={`group relative rounded-full border border-transparent cursor-pointer bg-transparent p-3 text-xl font-semibold ${className}`}
     >
       <div
-        className="absolute left-0 top-0 flex h-full items-center justify-end rounded-full transition-all duration-200 ease-in-out"
+        className="absolute aspect-square left-0 top-0 flex h-full items-center justify-end rounded-full transition-all duration-200 ease-in-out"
         style={{
-          width: isActive ? '100%' : '44px',
+          width: isActive ? '100%' : '50px',
           backgroundColor: primaryColor
         }}
       >
@@ -55,7 +55,7 @@ export default function SlideArrowLink({
         </span>
       </div>
       <span
-        className="relative z-10 whitespace-nowrap px-8 font-semibold transition-all duration-200 ease-in-out"
+        className="relative z-10 whitespace-nowrap px-8  font-semibold transition-all duration-200 ease-in-out"
         style={{
           color: isActive ? 'white' : 'black',
           left: isActive ? '-12px' : '16px'

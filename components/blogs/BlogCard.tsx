@@ -1,5 +1,7 @@
-
+"use client"
 import { Blog } from "@/constants/blogsData";
+import { useIsTouchDevice } from "@/lib/hooks/useIsTouchDevice";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { TbArrowBigRightLines } from "react-icons/tb";
@@ -7,16 +9,19 @@ import { TbArrowBigRightLines } from "react-icons/tb";
 export default function BlogCard({
   className,
   blog,
-  priority = false
+  priority = false,
+ 
 }: {
   className?: string;
   blog: Blog;
   priority?:boolean
+  
 }) {
+  const isTouchDevice = useIsTouchDevice();
   return (
     <Link
       href={`/blog/${blog.slug}`}
-      className={`group relative size-full select-none block pb-8 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary-accent transition ${className}`}
+      className={`group relative size-full bg-white select-none block pb-8 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary-accent transition ${className}`}
     >
       <div className="relative h-48 w-full overflow-hidden">
         <Image
@@ -43,7 +48,7 @@ export default function BlogCard({
         <p className="text-base text-neutral-600 line-clamp-2">{blog.intro}</p>
       </div>
 
-      <span className="absolute flex items-center gap-2 -translate-x-[200px] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 left-3 bottom-3 text-primary-accent">Read More
+      <span className={cn("absolute flex items-center gap-2   transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 left-3 bottom-3 text-primary-accent", isTouchDevice ?"":"-translate-x-[200px] opacity-0")}>Read More
         <TbArrowBigRightLines />
       </span>
     </Link>

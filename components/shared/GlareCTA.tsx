@@ -12,14 +12,18 @@ type GlareCTAProps = {
   titleText: string;
   titleAccentText: string;
   paragraph: string;
-  purpose?: "newsletter" | "contact";
+  purpose?: "newsletter" | "link";
   overlayColor?: string;
+  href?:string;
+  ctaText?:string;
 };
 
 export default function GlareCTA({
   titleText,
   titleAccentText,
   paragraph,
+  href,
+  ctaText,
   purpose = "newsletter",
   overlayColor = "rgba(243, 244, 246, 0.8)",
 }: GlareCTAProps) {
@@ -68,9 +72,9 @@ export default function GlareCTA({
             ) : (
               <RippleLinkButton
                 className=" whitespace-nowrap "
-                href="/contact"
+                href={href ? href : "#"}
               >
-                Contact Us
+                {ctaText}
               </RippleLinkButton>
             )}
           </FadeIn>

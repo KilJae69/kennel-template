@@ -78,9 +78,9 @@ export default function ChampionsSlider() {
                     ))}
                   </div>
 
-                  <div className="flex flex-col sm:flex-row justify-center gap-8 lg:gap-16 mb-6">
+                  <div className="flex  justify-center gap-2 md:gap-8 lg:gap-16 mb-6">
                     <div className="flex flex-col gap-4">
-                      <h4 className="font-semibold relative text-xl w-fit lg:text-2xl text-primary-accent mb-2">
+                      <h4 className="font-semibold relative whitespace-nowrap md:text-xl w-fit lg:text-2xl text-primary-accent mb-2">
                         Available For:
                         <span className="absolute w-full h-px -bottom-1 left-0 bg-primary-accent" />
                       </h4>
@@ -89,7 +89,7 @@ export default function ChampionsSlider() {
                           <li key={key} className="flex items-center gap-2">
                             <IconFactory
                               name={key}
-                              className={`size-8 ${color}`}
+                              className={` size-8 ${color}`}
                             />
                             <span>{label}</span>
                           </li>
@@ -97,7 +97,7 @@ export default function ChampionsSlider() {
                       </ul>
                     </div>
                     <div className="flex flex-col gap-4">
-                      <h4 className="font-semibold relative text-xl w-fit lg:text-2xl text-primary-accent mb-2">
+                      <h4 className="font-semibold relative whitespace-nowrap md:text-xl w-fit lg:text-2xl text-primary-accent mb-2">
                         Current Status:
                         <span className="absolute w-full h-px -bottom-1 left-0 bg-primary-accent" />
                       </h4>
@@ -106,7 +106,7 @@ export default function ChampionsSlider() {
                           <li key={key} className="flex items-center gap-2">
                             <IconFactory
                               name={key}
-                              className={`size-8 ${color}`}
+                              className={` size-8 ${color}`}
                             />
                             <span>{label}</span>
                           </li>
@@ -186,7 +186,7 @@ export default function ChampionsSlider() {
           </div>
 
           {/* PAGINATION DOTS */}
-          <div className="mt-8 flex justify-center space-x-3">
+          <div className="mt-8 relative z-40 flex justify-center space-x-3">
             {champions.map((_, i) => (
               <button
                 key={i}

@@ -11,20 +11,20 @@ import { useLazySwiper } from "@/lib/hooks/useLazySwiper";
 import BlogCard from "./BlogCard";
 import { Blog } from "@/constants/blogsData";
 
-
 export default function BlogsSwiper({ blogs }: { blogs: Blog[] }) {
   const { ref, SwiperComponent, SwiperSlideComponent, modules } =
     useLazySwiper();
+  
+  
 
   return (
     <div ref={ref} className="flex items-center justify-center w-full">
       {SwiperComponent ? (
         <SwiperComponent
-        
           pagination={{
             clickable: true,
           }}
-        //   navigation={true}
+          //   navigation={true}
           slidesPerView={1}
           breakpoints={{
             640: {

@@ -91,7 +91,7 @@ export const ModalBody = ({
   children,
   className,
   side = "left",
-  widthClass = "w-full max-w-[380px]",
+  widthClass = "w-full max-w-[250px] md:max-w-[320px]",
 }: {
   children: ReactNode;
   className?: string;

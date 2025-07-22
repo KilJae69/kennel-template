@@ -8,7 +8,8 @@ interface RippleLinkButtonProps extends Omit<LinkProps, "ref"> {
   href: string;
   children: React.ReactNode;
   invert?: boolean;
-  className?:string
+  className?: string;
+  onClick?: () => void;
 }
 
 export default function RippleLinkButton({
@@ -16,6 +17,7 @@ export default function RippleLinkButton({
   invert = false,
   children,
   className,
+  onClick,
   ...props
 }: RippleLinkButtonProps) {
   const anchorRef = useRef<HTMLAnchorElement>(null);
@@ -83,6 +85,7 @@ export default function RippleLinkButton({
 
   return (
     <Link
+      onClick={onClick}
       href={href}
       ref={anchorRef}
       onPointerEnter={createRipple}
@@ -90,8 +93,13 @@ export default function RippleLinkButton({
       onPointerMove={handleMove}
       onPointerUp={removeRipple}
       onPointerLeave={removeRipple}
-      
-      className={cn(`duration-[600ms] cursor-pointer shadow-md relative text-primary-accent flex items-center justify-center overflow-hidden rounded-3xl  px-6 py-3 text-[1.2rem] font-semibold border  transition hover:text-white active:text-white`, invert ? "bg-white border-white" :"bg-primary-accent-light border-primary-accent",className)}
+      className={cn(
+        `duration-[600ms] cursor-pointer shadow-md relative text-primary-accent flex items-center justify-center overflow-hidden rounded-3xl  px-6 py-3 text-[1.2rem] font-semibold border  transition hover:text-white active:text-white`,
+        invert
+          ? "bg-white border-white"
+          : "bg-primary-accent-light border-primary-accent",
+        className
+      )}
       {...props}
     >
       <span className="relative z-[2]">{children}</span>

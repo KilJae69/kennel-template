@@ -6,11 +6,11 @@ export type NavItem = {
 
 const navLinks: NavItem[] = [
   { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-  {title:"Litters",href:"/litters"},
+  { title: "About", href: "/about/" },
+  {title:"Litters",href:"/litters/"},
   {
     title: "Our Dogs",
-    href: "/dogs",
+    href: "/dogs/",
     // children: [
     //   { title: "Thor", href: "/dogs/thor" },
     //   { title: "Winston", href: "/dogs/winston" },
@@ -34,10 +34,10 @@ const navLinks: NavItem[] = [
     title: "Resources",
     href: "/resources",
     children: [
-      { title: "Blog & Tips", href: "/blog" },
-      { title: "About Corgies", href: "/breed" },
-      { title: "Contact Us", href: "/contact" },
-      { title: "Gallery", href: "/gallery" },
+      { title: "Blog & Tips", href: "/blog/" },
+      { title: "About Corgies", href: "/breed/" },
+      { title: "Contact Us", href: "/contact/" },
+      { title: "Gallery", href: "/gallery/" },
     ],
   },
 

@@ -67,7 +67,7 @@ export default async function LitterPage({
       <PageIntro title={litter.title} />
 
       {/* 2) Hero Image + Intro */}
-      <section className="pb-16 pt-12 lg:pt-16 lg:pb-28 relative  bg-radial-gradient from-orange-100 via-orange-200 to-orange-100">
+      <section className="pb-16 pt-12 lg:pt-16 lg:pb-28 relative  overflow-hidden bg-radial-gradient from-orange-100 via-orange-200 to-orange-100">
         <FadeIn className="flex flex-col items-center gap-4">
           <MovingBorderBadge
             className="text-primary-accent"
@@ -85,7 +85,7 @@ export default async function LitterPage({
       </section>
 
       {/* —— Unified Info Section —— */}
-      <section className="py-16 lg:py-28 bg-gray-50">
+      <section className="py-16 lg:py-28 bg-gray-50 overflow-hidden">
         <Container>
           <FadeIn className="text-center mb-12 flex flex-col items-center">
             <SectionTitle text="Litter" accentText="Overview" />

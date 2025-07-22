@@ -28,7 +28,7 @@ export default async function TipPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-     const { slug } = await params;
+  const { slug } = await params;
   const tip = breedTips.find((b) => b.slug === slug);
   if (!tip) return notFound();
 
@@ -38,49 +38,49 @@ export default async function TipPage({
       <PageIntro title={tip.title} />
 
       {/* Hero Image + Intro */}
-      <section className="my-16 lg:my-28 relative">
+      <section className="my-16 lg:my-28 relative overflow-hidden">
         <div className="fixed z-100 bottom-2 right-0 flex   w-full items-center justify-center">
-  <AnimatedDock
-    items={[
-      {
-        href: '/breed',
-        icon: <ArrowLeft />,
-        title: 'Back to Tips'
-      },
-      {
-        href: '/breed/care',
-        icon: <Scissors />,
-        title: 'Care'
-      },
-      {
-        href: "/breed/keeping",
-        icon: <Home />,
-        title: 'Keeping'
-      },
-      {
-        href: "/breed/food",
-        icon: <Bone />,
-        title: 'Food'
-      },
-      {
-        href: "/breed/vitamins",
-        icon: <Pill />,
-        title: 'Vitamins'
-      },
-      {
-        href: "/breed/health",
-        icon: <Heart />,
-        title: 'Health'
-      },
-      {
-        href: "/breed/exercise",
-        icon: <Dumbbell />,
-        title: 'Exercise'
-      },
-    ]}
-    smallClassName=" ml-auto mr-2 mb-4"
-  />
-</div>
+          <AnimatedDock
+            items={[
+              {
+                href: "/breed",
+                icon: <ArrowLeft />,
+                title: "Back to Tips",
+              },
+              {
+                href: "/breed/care",
+                icon: <Scissors />,
+                title: "Care",
+              },
+              {
+                href: "/breed/keeping",
+                icon: <Home />,
+                title: "Keeping",
+              },
+              {
+                href: "/breed/food",
+                icon: <Bone />,
+                title: "Food",
+              },
+              {
+                href: "/breed/vitamins",
+                icon: <Pill />,
+                title: "Vitamins",
+              },
+              {
+                href: "/breed/health",
+                icon: <Heart />,
+                title: "Health",
+              },
+              {
+                href: "/breed/exercise",
+                icon: <Dumbbell />,
+                title: "Exercise",
+              },
+            ]}
+            smallClassName=" ml-auto mr-2 mb-4"
+          />
+        </div>
         <Container>
           <FadeIn>
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-8">
@@ -119,7 +119,6 @@ export default async function TipPage({
                 et consectetur praesentium ea rerum fuga non modi natus facilis.
                 Expedita eligendi assumenda possimus culpa voluptatum?
               </p>
-              
             </div>
           </FadeIn>
         </Container>
@@ -127,7 +126,7 @@ export default async function TipPage({
 
       {/* Detail Sections */}
       {tip.sections.map((sec, i) => (
-        <section key={sec.heading} className="my-16 lg:my-28">
+        <section key={sec.heading} className="my-16 lg:my-28 overflow-hidden">
           <Container>
             <FadeIn>
               <div

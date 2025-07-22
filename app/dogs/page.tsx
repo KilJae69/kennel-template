@@ -64,7 +64,9 @@ export default function DogsPage() {
       <PuppiesForSaleSection />
       <CertificationsSection/>
       <GlareCTA
-        purpose="contact"
+        purpose="link"
+        href="/contact"
+        ctaText="Contact Us"
         titleText="Ready to"
         titleAccentText="Learn More?"
         paragraph="Whether you’d like to tour our facility, discuss upcoming breedings,

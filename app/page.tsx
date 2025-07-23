@@ -25,7 +25,14 @@ export default function Home() {
         titleAccentText="Own Champion?"
         overlayColor="rgba(255, 255, 255, 0.8)"
       />
-      <BlogsSection/>
+      <BlogsSection />
+      <GlareCTA
+        titleText="Never Miss a "
+        titleAccentText="Puppy Litter"
+        paragraph=" Get exclusive behind-the-scenes, health & hip-score insights, and 
+          champion show recaps—straight to your inbox."
+        overlayColor="rgba(255, 255, 255, 0.8)"
+      />
     </>
   );
 }

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Maple Grove Corgis",
     description: "Champion bloodlines & family-first care since 2010",
-    url: "https://your-domain.com",
+    url: "https://maple-grove-corgis.vercel.app/",
     siteName: "Maple Grove Corgis",
     images: [
       {

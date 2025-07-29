@@ -58,7 +58,7 @@ export default function Header() {
             <Link className="flex-1 lg:flex-0" href="/">
               <div className="relative max-w-[140px] lg:w-[140px] h-[80px]">
                 <Image
-                  src="/logo.webp"
+                  src="/logo.svg"
                   className="object-contain"
                   priority
                   fill
